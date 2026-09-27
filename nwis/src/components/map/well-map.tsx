@@ -221,6 +221,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
           getBackgroundColor: labelBg,
           backgroundPadding: [3, 1],
           fontFamily: "IBM Plex Mono, monospace",
+          parameters: { depthCompare: "always" },
           updateTriggers: { data: [highlight, hoverId] },
         }),
       );
@@ -259,7 +260,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
           id: "wells",
           data: WELLS.filter((w) => w.status !== "planned"),
           diskResolution: 18,
-          radius: 70,
+          radius: 85,
           extruded: true,
           pickable: true,
           elevationScale: 0.32 * grow,
@@ -276,7 +277,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
           id: "planned",
           data: WELLS.filter((w) => w.status === "planned" || w.id === ACTIVE_WELL.id),
           diskResolution: 18,
-          radius: 70,
+          radius: 85,
           extruded: true,
           wireframe: true,
           filled: false,
@@ -318,6 +319,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
           fontWeight: 600,
           getPixelOffset: [0, -10],
           billboard: true,
+          parameters: { depthCompare: "always" },
           updateTriggers: { getPosition: grow, getColor: [radiusKm, dark, basemap] },
         }),
       );

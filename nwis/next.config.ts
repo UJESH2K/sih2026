@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // deck.gl's interleaved MapboxOverlay cannot re-attach to the same WebGL
+  // context when StrictMode double-mounts effects in development.
+  reactStrictMode: false,
+  devIndicators: false,
 };
 
 export default nextConfig;

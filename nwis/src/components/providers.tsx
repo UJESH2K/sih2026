@@ -63,7 +63,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <SimulationDriver />
         <PrefsSync />
         <AlertToasts />
-        <Toaster position="top-right" richColors closeButton />
+        <Toaster position="bottom-right" richColors closeButton />
       </TooltipProvider>
     </ThemeProvider>
   );

@@ -65,7 +65,7 @@ export function RiskMeter({ p, className }: { p: number; className?: string }) {
     <div className={cn("h-2 w-full overflow-hidden rounded-full bg-muted", className)} role="meter" aria-valuenow={Math.round(p * 100)} aria-valuemin={0} aria-valuemax={100}>
       <div
         className={cn("h-full rounded-full transition-[width] duration-500", lv === "high" ? "bg-risk-high" : lv === "med" ? "bg-risk-med" : "bg-risk-low")}
-        style={{ width: `${Math.max(4, p * 100)}%` }}
+        style={{ width: `${Math.max(4, Math.round(p * 1000) / 10)}%` }}
       />
     </div>
   );

@@ -28,13 +28,13 @@ function ActiveWellChip() {
     <Link
       href="/live"
       data-tour="active-chip"
-      className="flex items-center gap-2.5 rounded-md border bg-card px-2.5 py-1 text-sm shadow-xs hover:bg-muted"
+      className="flex items-center gap-2.5 rounded-md border bg-card px-2.5 py-1 text-sm whitespace-nowrap shadow-xs hover:bg-muted"
     >
       <span className="relative flex size-2.5">
         {running && <span className="absolute inline-flex size-full rounded-full bg-live animate-pulse-ring" />}
         <span className={cn("relative inline-flex size-2.5 rounded-full", running ? "bg-live" : "bg-muted-foreground/50")} />
       </span>
-      <span className="hidden text-muted-foreground xl:inline">{t("activeWell")}</span>
+      <span className="hidden text-muted-foreground 2xl:inline">{t("activeWell")}</span>
       <span className="font-semibold">{ACTIVE_WELL.id}</span>
       <span className="h-4 w-px bg-border" />
       <span className="font-mono tabular font-semibold">{Math.round(depth).toLocaleString("en-IN")} m</span>
@@ -134,11 +134,11 @@ export function Topbar() {
         <span className="hidden font-bold sm:inline">NWIS</span>
       </Link>
 
-      <div className="hidden items-center gap-1.5 text-sm md:flex">
+      <div className="hidden items-center gap-1.5 text-sm whitespace-nowrap xl:flex">
         <span className="text-muted-foreground">{t("field")}:</span>
         <span className="font-medium">{tx(FIELD.name, FIELD.nameHi)}</span>
       </div>
-      <div className="mx-1 hidden h-6 w-px bg-border md:block" />
+      <div className="mx-1 hidden h-6 w-px bg-border xl:block" />
       <ActiveWellChip />
 
       <div className="flex-1" />
@@ -146,7 +146,7 @@ export function Topbar() {
       <button
         onClick={() => setSearchOpen(true)}
         data-tour="search"
-        className="hidden h-9 w-64 items-center gap-2 rounded-md border bg-card px-3 text-sm text-muted-foreground shadow-xs hover:bg-muted xl:flex"
+        className="hidden h-9 w-56 items-center gap-2 rounded-md border bg-card px-3 text-sm text-muted-foreground shadow-xs hover:bg-muted xl:flex"
       >
         <Search className="size-4" />
         <span className="flex-1 truncate text-left">{t("search")}</span>

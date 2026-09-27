@@ -216,6 +216,8 @@ function advance(set: Setter, get: () => State, metres: number) {
     if (d % 10 === 0) {
       for (const r of upcomingRisks(ACTIVE_WELL, offsets, d, 160)) {
         if (r.p < 0.4 || r.distanceAhead > 160 || r.distanceAhead < 5 || mitigated.has(r.type)) continue;
+        // one predictive alert per hazard zone: skip if same type already raised within 250 m
+        if (alerts.some((a) => a.kind === "predictive" && a.type === r.type && Math.abs(a.targetDepth - r.peakDepth) < 250)) continue;
         push(`pred-${r.type}-${r.formation}`, {
           kind: "predictive", type: r.type, level: riskLevel(r.p), p: r.p, raisedAtDepth: d, targetDepth: r.peakDepth,
           formation: r.formation, wells: r.wellsWith, offsetsConsidered: r.offsetsConsidered,

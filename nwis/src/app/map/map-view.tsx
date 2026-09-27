@@ -328,7 +328,7 @@ export function MapView() {
               <WellTabs key={well.id} well={well} variant="panel" />
             </div>
             <footer className="flex gap-2 border-t p-3">
-              <Button render={<Link href={`/wells/${well.id}`} />} className="flex-1">
+              <Button nativeButton={false} render={<Link href={`/wells/${well.id}`} />} className="flex-1">
                 {t("openWell")} <ArrowRight />
               </Button>
               {well.id !== ACTIVE_WELL.id && well.status !== "planned" && (

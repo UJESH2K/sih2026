@@ -1,3 +1,5 @@
+import { OverviewView } from "./overview-view";
+
 export default function Home() {
-  return <div className="p-6">Overview</div>;
+  return <OverviewView />;
 }
