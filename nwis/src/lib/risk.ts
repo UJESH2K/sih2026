@@ -117,7 +117,7 @@ export interface UpcomingRisk {
 }
 
 const RECS: Record<EventType, string> = {
-  mud_loss: "Pre-treat active system with sized LCM (CaCO₃ fine/medium, 15–20 ppb), keep MW ≤ 1.20 sg and reduce flow rate ~10% through the zone.",
+  mud_loss: "Pre-treat active system with sized LCM (CaCO₃ fine/medium, 15–20 ppb), keep MW ≤ 1.22 sg and reduce flow rate ~10% through the zone.",
   kick: "Raise MW to 1.30–1.32 sg before the Kopili top, perform flow checks at every connection and keep trip-tank monitoring active.",
   stuck_pipe: "Keep pipe moving, minimise connection time, wiper trip every 150 m and keep a jar in the BHA; avoid long static periods.",
   tight_hole: "Plan reaming passes, monitor drag trend per stand and add shale inhibitor.",

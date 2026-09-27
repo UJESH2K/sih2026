@@ -190,7 +190,7 @@ const TITLES: Record<EventType, string> = {
   wellbore_instability: "Wellbore instability",
 };
 
-function eventText(type: EventType, sev: Severity, key: string, mw: number) {
+function eventText(type: EventType, sev: Severity, key: string, mw: number, fm: string) {
   const bbl = [40, 120, 260][sev - 1] + Math.round(hash(key) * 60);
   switch (type) {
     case "mud_loss":
@@ -204,13 +204,21 @@ function eventText(type: EventType, sev: Severity, key: string, mw: number) {
           ],
           key,
         ),
-        lesson: "Pre-treat with sized LCM ~50 m above the Barail top and keep ECD below 1.30 sg equivalent.",
+        lesson:
+          fm === "barail"
+            ? "Pre-treat with sized LCM ~50 m above the Barail top and keep MW ≤ 1.22 sg / ECD below 1.30 sg."
+            : fm === "tipam"
+              ? "Tipam sands are highly permeable — keep LCM on standby and control ROP/ECD while drilling them."
+              : "Monitor returns closely and keep LCM ready through fractured intervals.",
       };
     case "kick":
       return {
         details: `Pit gain of ${[6, 12, 22][sev - 1]} bbl with flow check positive; SIDPP ${[120, 260, 480][sev - 1]} psi.`,
         action: `Shut in (hard shut-in), circulated out by Driller's method; MW raised ${mw.toFixed(2)} → ${(mw + 0.08).toFixed(2)} sg.`,
-        lesson: "Raise MW before the Kopili top; monitor pit volume and connection gas closely in the first 150 m.",
+        lesson:
+          fm === "kopili"
+            ? "Raise MW before the Kopili top; monitor pit volume and connection gas closely in the first 150 m."
+            : "Unexpected pressured sand — take flow checks after drilling breaks and keep kick tolerance updated.",
       };
     case "stuck_pipe":
       return {
@@ -319,7 +327,7 @@ function buildWell(w: RawWell): Well {
     const depth = Math.round(topOf({ formation_tops: tops }, fm) + off);
     const key = `${w.id}-${i}`;
     const day = Math.max(2, Math.round(depth / 85 + hash(key) * 3));
-    const txt = eventText(type, sev, key, mwAt(mud, depth));
+    const txt = eventText(type, sev, key, mwAt(mud, depth), fm);
     const isDDR = type !== "cement_issue";
     const docId = `${w.id}-${isDDR ? "DDR" : "CEM"}`;
     return {

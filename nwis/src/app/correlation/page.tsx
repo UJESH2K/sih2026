@@ -1,3 +1,8 @@
-export default function Page() {
-  return <div className="p-6 text-muted-foreground">Coming soon: correlation</div>;
+import type { Metadata } from "next";
+import { CorrelationView } from "./correlation-view";
+
+export const metadata: Metadata = { title: "Offset Correlation" };
+
+export default function CorrelationPage() {
+  return <CorrelationView />;
 }
