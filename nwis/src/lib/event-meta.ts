@@ -21,15 +21,15 @@ export interface EventMeta {
 }
 
 export const EVENT_META: Record<EventType, EventMeta> = {
-  mud_loss: { label: "Mud loss", labelHi: "मड लॉस", short: "Loss", icon: Droplets, color: "#2F7FD8" },
-  kick: { label: "Kick / influx", labelHi: "किक", short: "Kick", icon: TriangleAlert, color: "#D63B2F" },
-  stuck_pipe: { label: "Stuck pipe", labelHi: "अटका पाइप", short: "Stuck", icon: Lock, color: "#8A4FD1" },
-  tight_hole: { label: "Tight hole", labelHi: "टाइट होल", short: "Tight", icon: MoveVertical, color: "#C27C0E" },
-  torque_spike: { label: "Torque spike", labelHi: "टॉर्क स्पाइक", short: "Torque", icon: RotateCw, color: "#D9730D" },
-  cement_issue: { label: "Cementing issue", labelHi: "सीमेंटिंग समस्या", short: "Cement", icon: Layers, color: "#6B7A8F" },
-  fishing: { label: "Fishing", labelHi: "फिशिंग", short: "Fishing", icon: Anchor, color: "#9C2F6A" },
-  bit_balling: { label: "Bit balling", labelHi: "बिट बॉलिंग", short: "Balling", icon: CircleDot, color: "#5E8C3A" },
-  wellbore_instability: { label: "Wellbore instability", labelHi: "कुआँ अस्थिरता", short: "Instab.", icon: Mountain, color: "#7A5A3A" },
+  mud_loss: { label: "Mud loss", labelHi: "मड लॉस", short: "Loss", icon: Droplets, color: "#2a78d6" },
+  kick: { label: "Kick / influx", labelHi: "किक", short: "Kick", icon: TriangleAlert, color: "#eb6834" },
+  stuck_pipe: { label: "Stuck pipe", labelHi: "अटका पाइप", short: "Stuck", icon: Lock, color: "#4a3aa7" },
+  tight_hole: { label: "Tight hole", labelHi: "टाइट होल", short: "Tight", icon: MoveVertical, color: "#1baf7a" },
+  torque_spike: { label: "Torque spike", labelHi: "टॉर्क स्पाइक", short: "Torque", icon: RotateCw, color: "#eda100" },
+  cement_issue: { label: "Cementing issue", labelHi: "सीमेंटिंग समस्या", short: "Cement", icon: Layers, color: "#e87ba4" },
+  fishing: { label: "Fishing", labelHi: "फिशिंग", short: "Fishing", icon: Anchor, color: "#8a5a44" },
+  bit_balling: { label: "Bit balling", labelHi: "बिट बॉलिंग", short: "Balling", icon: CircleDot, color: "#008300" },
+  wellbore_instability: { label: "Wellbore instability", labelHi: "कुआँ अस्थिरता", short: "Instab.", icon: Mountain, color: "#7d8793" },
 };
 
 export const EVENT_TYPES = Object.keys(EVENT_META) as EventType[];

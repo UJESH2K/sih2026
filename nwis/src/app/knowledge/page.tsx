@@ -1,3 +1,13 @@
-export default function Page() {
-  return <div className="p-6 text-muted-foreground">Coming soon: knowledge</div>;
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import { KnowledgeView } from "./knowledge-view";
+
+export const metadata: Metadata = { title: "Knowledge Search" };
+
+export default function KnowledgePage() {
+  return (
+    <Suspense>
+      <KnowledgeView />
+    </Suspense>
+  );
 }

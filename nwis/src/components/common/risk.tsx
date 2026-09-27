@@ -35,10 +35,10 @@ export function EventChip({ type, className, compact }: { type: EventType; class
   const Icon = m.icon;
   return (
     <span
-      className={cn("inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-xs font-medium whitespace-nowrap", className)}
-      style={{ color: m.color, background: `color-mix(in oklch, ${m.color} 12%, transparent)` }}
+      className={cn("inline-flex items-center gap-1.5 rounded-md px-1.5 py-0.5 text-xs font-medium whitespace-nowrap text-foreground/85", className)}
+      style={{ background: `color-mix(in oklch, ${m.color} 13%, transparent)`, boxShadow: `inset 0 0 0 1px color-mix(in oklch, ${m.color} 30%, transparent)` }}
     >
-      <Icon className="size-3.5" aria-hidden />
+      <Icon className="size-3.5" style={{ color: m.color }} aria-hidden />
       {!compact && (lang === "hi" ? m.labelHi : m.label)}
     </span>
   );

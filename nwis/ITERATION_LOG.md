@@ -18,10 +18,19 @@ Screenshots for self-review: `node scripts/shot.mjs <path> <name> [--wait=ms] [-
 - Pages: Overview (hero, next risk, risk ribbon, how-it-works), Map (2.5D columns, radius slider, rings, links, hexbins, trajectories, well panel), Live (tiles, mud-log tracks + predicted-risk column, look-ahead, alert feed w/ apply/ack/evidence), Wells list + detail (overview, depth strip, events & lessons, time-depth, casing & mud, documents).
 - Guided tour (9 steps).
 
+
+## Iteration 2 — 2026-09-28
+- Correlation: formation-aligned vs MD toggle, cross-section bands, event filter, add/remove wells, auto "Patterns found".
+- Ask NWIS: local retrieval engine (wells/formations/problems/depth/radius parsing incl. Hindi terms), intents (summary, mud weight, advice, search), streaming reveal, citations → source pages, follow-ups.
+- Knowledge search: text + facets w/ live counts, depth slider, radius toggle, sort, top lessons.
+- Document AI: 5-stage pipeline, scanned DDR/WCR samples, OCR outlines, NLP entity tags, structured record w/ confidence, links to KB.
+- Risk dashboard: KPIs (projected NPT saving), NPT by cause, events by formation (stacked, validated palette), depth heat strip, learning curve, worst wells.
+- Event palette re-assigned to validated reference order (dataviz validator); chips use neutral text + coloured icon.
+- Data consistency: per-event overrides (NWS-07 loss ↔ DDR sample; NWS-03 stuck → fishing), formation-aware lessons.
+
 ### Next priorities
-1. Correlation view (formation-aligned tracks, connecting bands, active well live).
-2. Ask NWIS (scripted streaming answers + citations).
-3. Knowledge search (filters: type, formation, depth, severity, well).
-4. Document AI mock (scan → OCR boxes → extracted table).
-5. Risk dashboard (office KPIs, charts).
-6. Polish: Hindi coverage, dark-mode check, mobile/tablet, field mode layouts, perf.
+1. Full QA pass: dark mode, Hindi, Field mode, tablet/mobile widths, guided tour end-to-end.
+2. Map polish: labels on top, legend/scale overlap, planned wells ghost look, offline fallback test.
+3. Correlation: show predicted zones on active track; Live: better formation labels & flow value overlap.
+4. Dashboard learning-curve sanity; field-mode simplified overview.
+5. Research previous SIH winning demo patterns → landing/pitch touches (problem→solution framing, impact numbers).

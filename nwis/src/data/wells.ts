@@ -74,6 +74,8 @@ interface RawWell {
   rig: string;
   // compact events: [type, formation, metres below top, severity, NPT h]
   ev: [EventType, string, number, Severity, number][];
+  /** hand-written overrides so key stories stay consistent across pages */
+  over?: Record<number, { details?: string; action?: string }>;
 }
 
 const RAW: RawWell[] = [
@@ -91,6 +93,7 @@ const RAW: RawWell[] = [
     id: "NWS-03", lat: 27.356, lng: 95.305, status: "abandoned", spud: "2010-02-02", td: 3350, rig: "Cardwell #5",
     result: "Plugged & abandoned after fishing failure",
     ev: [["mud_loss", "tipam", 610, 1, 4], ["wellbore_instability", "barail", 190, 3, 22], ["stuck_pipe", "barail", 230, 3, 58], ["fishing", "barail", 230, 3, 96]],
+    over: { 2: { action: "Jarred down 38 times and spotted pipe-lax pill — unsuccessful; backed off above BHA." } },
   },
   {
     id: "NWS-04", lat: 27.381, lng: 95.318, status: "producing", spud: "2012-09-10", td: 3900, profile: "Deviated (J)", az: 40, dep: 620, rig: "E-2000 #1",
@@ -111,6 +114,10 @@ const RAW: RawWell[] = [
     id: "NWS-07", lat: 27.362, lng: 95.343, status: "producing", spud: "2015-03-11", td: 3960, profile: "Deviated (J)", az: 115, dep: 540, rig: "E-2000 #1",
     result: "Oil producer — Barail & Sylhet",
     ev: [["mud_loss", "barail", 20, 3, 14], ["stuck_pipe", "barail", 215, 3, 31], ["torque_spike", "barail", 200, 2, 4], ["torque_spike", "sylhet", 60, 1, 2]],
+    over: {
+      0: { details: "Partial losses — 180 bbl lost at 18 bbl/hr while drilling ahead.", action: "Pumped 40 bbl LCM pill (CaCO₃ F/M + fibre), reduced MW 1.26 → 1.22 sg, cut flow rate 10%." },
+      1: { action: "Jarred 22 times, spotted pipe-lax pill; freed after 26 h, then reamed the interval." },
+    },
   },
   {
     id: "NWS-08", lat: 27.33, lng: 95.318, status: "producing", spud: "2016-05-30", td: 3680, rig: "E-1400 #2",
@@ -327,7 +334,7 @@ function buildWell(w: RawWell): Well {
     const depth = Math.round(topOf({ formation_tops: tops }, fm) + off);
     const key = `${w.id}-${i}`;
     const day = Math.max(2, Math.round(depth / 85 + hash(key) * 3));
-    const txt = eventText(type, sev, key, mwAt(mud, depth), fm);
+    const txt = { ...eventText(type, sev, key, mwAt(mud, depth), fm), ...w.over?.[i] };
     const isDDR = type !== "cement_issue";
     const docId = `${w.id}-${isDDR ? "DDR" : "CEM"}`;
     return {

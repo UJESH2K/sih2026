@@ -1,3 +1,8 @@
-export default function Page() {
-  return <div className="p-6 text-muted-foreground">Coming soon: documents</div>;
+import type { Metadata } from "next";
+import { DocumentsView } from "./documents-view";
+
+export const metadata: Metadata = { title: "Document AI" };
+
+export default function DocumentsPage() {
+  return <DocumentsView />;
 }
