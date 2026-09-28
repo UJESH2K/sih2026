@@ -1,0 +1,14 @@
+# logs
+*.log
+
+# local tooling
+.claude/
+.vscode/
+
+# stray npm artefacts at the repo root (the app lives in nwis/)
+/package-lock.json
+/node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
