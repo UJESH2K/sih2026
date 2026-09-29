@@ -163,7 +163,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
           background: true,
           getBackgroundColor: labelBg,
           backgroundPadding: [4, 2],
-          fontFamily: "IBM Plex Sans, sans-serif",
+          fontFamily: "Public Sans, sans-serif",
           fontWeight: 600,
         }),
       );
@@ -220,7 +220,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
           background: true,
           getBackgroundColor: labelBg,
           backgroundPadding: [3, 1],
-          fontFamily: "IBM Plex Mono, monospace",
+          fontFamily: "Public Sans, sans-serif",
           parameters: { depthCompare: "always" },
           updateTriggers: { data: [highlight, hoverId] },
         }),
@@ -315,7 +315,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
           background: true,
           getBackgroundColor: labelBg,
           backgroundPadding: [4, 2],
-          fontFamily: "IBM Plex Sans, sans-serif",
+          fontFamily: "Public Sans, sans-serif",
           fontWeight: 600,
           getPixelOffset: [0, -10],
           billboard: true,
@@ -337,7 +337,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
       .map((e) => `<span style="color:${EVENT_META[e.type].color}">●</span> ${EVENT_META[e.type].label} @ ${e.depth_m} m`)
       .join("<br/>");
     return {
-      html: `<div style="font-family:var(--font-plex-sans);min-width:190px">
+      html: `<div style="font-family:var(--font-public-sans);min-width:190px">
         <div style="font-weight:700;font-size:14px">${w.id} <span style="font-weight:500;font-size:11px;color:${st.color}">● ${lang === "hi" ? st.labelHi : st.label}</span></div>
         <div style="font-size:12px;opacity:.8;margin-top:2px">${w.id === ACTIVE_WELL.id ? (lang === "hi" ? "सक्रिय कुआँ" : "Active well") : `${d.toFixed(2)} km ${compass(bearingDeg(ACTIVE_WELL, w))}`} · TD ${w.total_depth_m.toLocaleString("en-IN")} m</div>
         ${evs ? `<div style="font-size:12px;margin-top:6px;line-height:1.5">${evs}</div>` : ""}
@@ -382,7 +382,7 @@ export function WellMap({ intro = true }: { intro?: boolean }) {
         </div>
       </Marker>
       <NavigationControl position="top-right" visualizePitch />
-      <ScaleControl position="bottom-right" />
+      <ScaleControl position="top-right" />
     </Map>
   );
 }

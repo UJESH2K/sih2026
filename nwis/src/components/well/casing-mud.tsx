@@ -59,7 +59,7 @@ export function CasingMud({ well, height = 460 }: { well: Well; height?: number 
           );
         })}
         {/* mud weight panel */}
-        <text x={295} y={10} textAnchor="middle" className="fill-muted-foreground text-[9px] font-semibold uppercase">
+        <text x={295} y={10} textAnchor="middle" className="fill-muted-foreground text-[9px] font-semibold">
           {lang === "hi" ? "मड वज़न (sg)" : "Mud weight (sg)"}
         </text>
         {[1.1, 1.2, 1.3, 1.4].map((v) => (

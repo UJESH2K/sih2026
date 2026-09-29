@@ -177,7 +177,7 @@ export function Tour() {
       <div className="pointer-events-auto absolute bottom-6 left-1/2 w-[min(560px,calc(100vw-32px))] -translate-x-1/2 rounded-xl border bg-popover p-5 text-popover-foreground shadow-2xl">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <p className="text-xs font-semibold tracking-wide text-primary uppercase">
+            <p className="text-xs font-semibold tracking-wide text-primary">
               {lang === "hi" ? "चरण" : "Step"} {step + 1} / {STEPS.length}
             </p>
             <h2 className="mt-1 text-lg font-semibold">{s.title[lang]}</h2>

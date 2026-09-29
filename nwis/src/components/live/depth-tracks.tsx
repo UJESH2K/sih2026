@@ -85,7 +85,7 @@ export function DepthTracks({
         <svg width={width} height={height} role="img" aria-label="Live drilling depth tracks with look-ahead risk">
           {/* look-ahead zone */}
           <rect x={0} y={y(depth)} width={width} height={y(bottom) - y(depth)} className="fill-muted/60" />
-          <text x={axisW + fmW + 8} y={y(depth) + 16} className="fill-muted-foreground text-[11px] font-semibold uppercase">
+          <text x={axisW + fmW + 8} y={y(depth) + 16} className="fill-muted-foreground text-[11px] font-semibold">
             {lang === "hi" ? "आगे — ऑफ़सेट कुओं से अनुमानित" : "Ahead — predicted from offset wells"}
           </text>
 

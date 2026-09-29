@@ -54,7 +54,8 @@ export function RiskRibbon({ from, to }: { from: number; to: number }) {
           const y0 = fmH + 4 + r * rowH;
           return (
             <g key={type}>
-              <text x={0} y={y0 + 14} className="text-[11px] font-medium" fill={EVENT_META[type].color}>
+              <circle cx={4} cy={y0 + 10} r={3.5} fill={EVENT_META[type].color} />
+              <text x={12} y={y0 + 14} className="fill-foreground text-[11px] font-medium">
                 {lang === "hi" ? EVENT_META[type].labelHi : EVENT_META[type].label}
               </text>
               <rect x={labelW} y={y0 + 2} width={W - labelW - 8} height={rowH - 6} rx={3} className="fill-muted" />

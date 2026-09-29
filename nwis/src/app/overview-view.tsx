@@ -111,7 +111,7 @@ export function OverviewView() {
 
         {/* next risk */}
         <section className="flex flex-col rounded-xl border bg-card p-5 lg:col-span-2">
-          <p className="text-sm font-semibold text-muted-foreground uppercase">{t("nextRisk")}</p>
+          <p className="text-sm font-semibold text-muted-foreground">{t("nextRisk")}</p>
           {next ? (
             <>
               <div className="mt-2 flex items-center justify-between gap-2">
@@ -127,7 +127,7 @@ export function OverviewView() {
                 {next.wellsWith.length} {t("of")} {next.offsetsConsidered} {t("offsetsHad")}.
               </p>
               <div className="mt-3 rounded-md bg-muted/70 p-3">
-                <p className="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">{t("recommendation")}</p>
+                <p className="text-[11px] font-semibold tracking-wide text-muted-foreground">{t("recommendation")}</p>
                 <p className="mt-0.5 text-sm leading-snug">{next.recommendation}</p>
                 {next.provenFix && (
                   <p className="mt-1.5 text-xs text-muted-foreground">

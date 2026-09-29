@@ -29,7 +29,7 @@ export function EventCard({
   return (
     <article
       id={event.id}
-      className={cn("rounded-lg border bg-card p-3 shadow-xs", selected && "ring-2 ring-primary", className)}
+      className={cn("rounded-lg border bg-card p-3", selected && "ring-2 ring-primary", className)}
     >
       <header className="flex flex-wrap items-center gap-x-2 gap-y-1">
         <EventChip type={event.type} />
@@ -44,11 +44,11 @@ export function EventCard({
       <p className="mt-2 text-sm leading-snug">{event.details}</p>
       <dl className="mt-2 space-y-1.5 text-sm">
         <div className="rounded-md bg-muted/70 px-2.5 py-1.5">
-          <dt className="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">{lang === "hi" ? "की गई कार्रवाई" : "Action taken"}</dt>
+          <dt className="text-[11px] font-semibold tracking-wide text-muted-foreground">{lang === "hi" ? "की गई कार्रवाई" : "Action taken"}</dt>
           <dd className="leading-snug">{event.action}</dd>
         </div>
         <div className="rounded-md border border-primary/20 bg-accent/60 px-2.5 py-1.5">
-          <dt className="text-[11px] font-semibold tracking-wide text-accent-foreground uppercase">{lang === "hi" ? "सीख" : "Lesson learned"}</dt>
+          <dt className="text-[11px] font-semibold tracking-wide text-accent-foreground">{lang === "hi" ? "सीख" : "Lesson learned"}</dt>
           <dd className="leading-snug">{event.lesson}</dd>
         </div>
       </dl>

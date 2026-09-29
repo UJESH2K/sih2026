@@ -110,7 +110,7 @@ export function DepthStrip({
               key={e.id}
               onClick={() => onEventClick?.(e)}
               className={cn(
-                "absolute left-1 flex max-w-[calc(100%-8px)] -translate-y-1/2 items-center gap-1 rounded border bg-card px-1 py-0.5 text-left shadow-xs transition hover:z-10 hover:shadow-md",
+                "absolute left-1 flex max-w-[calc(100%-8px)] -translate-y-1/2 items-center gap-1 rounded border bg-card px-1 py-0.5 text-left transition hover:z-10 hover:shadow-md",
                 selectedEventId === e.id && "z-10 ring-2 ring-primary",
               )}
               style={{ top, borderColor: m.color }}

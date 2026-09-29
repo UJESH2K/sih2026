@@ -100,7 +100,7 @@ export function CorrelationView() {
                   role="radio"
                   aria-checked={align === a}
                   onClick={() => setAlign(a)}
-                  className={cn("rounded px-2.5 py-1 font-medium", align === a ? "bg-card shadow-xs" : "text-muted-foreground")}
+                  className={cn("rounded px-2.5 py-1 font-medium", align === a ? "bg-card" : "text-muted-foreground")}
                 >
                   {a === "formation" ? (lang === "hi" ? "संरचना संरेखण" : "Align by formation") : lang === "hi" ? "मापी गहराई" : "Measured depth"}
                 </button>
@@ -114,7 +114,7 @@ export function CorrelationView() {
                 <button
                   key={label}
                   onClick={() => setRange(r)}
-                  className={cn("rounded px-2.5 py-1 font-medium", range[0] === r[0] ? "bg-card shadow-xs" : "text-muted-foreground")}
+                  className={cn("rounded px-2.5 py-1 font-medium", range[0] === r[0] ? "bg-card" : "text-muted-foreground")}
                 >
                   {label}
                 </button>

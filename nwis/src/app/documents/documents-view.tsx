@@ -172,7 +172,7 @@ export function DocumentsView() {
             </label>
             {dropped && <p className="mt-2 truncate font-mono text-xs">{dropped}</p>}
           </div>
-          <p className="text-xs font-semibold text-muted-foreground uppercase">{lang === "hi" ? "नमूना दस्तावेज़" : "Sample documents"}</p>
+          <p className="text-xs font-semibold text-muted-foreground">{lang === "hi" ? "नमूना दस्तावेज़" : "Sample documents"}</p>
           {SAMPLES.map((s, i) => (
             <button
               key={s.id}

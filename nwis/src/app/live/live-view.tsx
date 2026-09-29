@@ -32,7 +32,7 @@ function Controls() {
   return (
     <section className="flex flex-wrap items-center gap-x-6 gap-y-3 border-b bg-card px-4 py-3" data-tour="live-controls">
       <div>
-        <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase">
+        <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
           <span className={cn("size-2 rounded-full", running ? "bg-live animate-pulse" : "bg-muted-foreground/50")} />
           {ACTIVE_WELL.id} · {running ? (lang === "hi" ? "ड्रिलिंग" : "Drilling") : lang === "hi" ? "रुका हुआ" : "Paused"}
         </p>
@@ -58,10 +58,8 @@ function Controls() {
         <div className="mt-1 h-2 overflow-hidden rounded-full bg-muted">
           <div className="h-full bg-primary transition-[width]" style={{ width: `${progress * 100}%` }} />
         </div>
-        <p className="mt-1 flex items-center gap-1 text-xs text-muted-foreground">
-          <Clock className="size-3" /> {lang === "hi" ? "रिग घंटे" : "Rig hours on section"}: <span className="font-mono tabular">{last.hours.toFixed(1)} h</span>
-          <span className="mx-1">·</span>
-          <Radio className="size-3" /> {t("replayNote")}
+        <p className="mt-1 text-xs whitespace-nowrap text-muted-foreground">
+          {lang === "hi" ? "रिग घंटे" : "Rig hours"}: <span className="tabular">{last.hours.toFixed(1)} h</span> · {t("replayNote")}
         </p>
       </div>
       <div className="flex flex-wrap items-center gap-2">
@@ -84,7 +82,7 @@ function Controls() {
               role="radio"
               aria-checked={speed === s}
               onClick={() => setSpeed(s)}
-              className={cn("rounded px-2 py-1 font-mono text-xs font-semibold", speed === s ? "bg-card shadow-xs" : "text-muted-foreground")}
+              className={cn("rounded px-2 py-1 font-mono text-xs font-semibold", speed === s ? "bg-card" : "text-muted-foreground")}
             >
               {s}×
             </button>
@@ -125,11 +123,6 @@ function Tiles() {
             {t.v}
             <span className="ml-1 text-[11px] font-normal text-muted-foreground">{t.u}</span>
           </p>
-          {t.d !== 0 && (
-            <p className="font-mono text-[10px] text-muted-foreground tabular">
-              {t.d > 0 ? "▲" : "▼"} {Math.abs(t.d).toFixed(Math.abs(t.d) < 1 ? 2 : 1)} / 30 m
-            </p>
-          )}
         </div>
       ))}
     </div>

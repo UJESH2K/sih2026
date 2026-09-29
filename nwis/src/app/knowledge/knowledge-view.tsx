@@ -106,7 +106,7 @@ export function KnowledgeView() {
   const filters = (
     <div className="space-y-4">
       <section>
-        <h3 className="mb-1 px-2 text-xs font-semibold text-muted-foreground uppercase">{lang === "hi" ? "समस्या" : "Problem"}</h3>
+        <h3 className="mb-1 px-2 text-xs font-semibold text-muted-foreground">{lang === "hi" ? "समस्या" : "Problem"}</h3>
         {EVENT_TYPES.map((t) => {
           const Icon = EVENT_META[t].icon;
           return (
@@ -118,7 +118,7 @@ export function KnowledgeView() {
         })}
       </section>
       <section>
-        <h3 className="mb-1 px-2 text-xs font-semibold text-muted-foreground uppercase">{lang === "hi" ? "संरचना" : "Formation"}</h3>
+        <h3 className="mb-1 px-2 text-xs font-semibold text-muted-foreground">{lang === "hi" ? "संरचना" : "Formation"}</h3>
         {FORMATIONS.slice(2, 7).map((f) => (
           <FacetButton key={f.id} active={fms.includes(f.name)} onClick={() => toggle(fms, setFms, f.name)} count={fCount(f.name)}>
             <span className="size-3 shrink-0 rounded-sm" style={{ background: f.color }} />
@@ -127,7 +127,7 @@ export function KnowledgeView() {
         ))}
       </section>
       <section>
-        <h3 className="mb-1 px-2 text-xs font-semibold text-muted-foreground uppercase">{lang === "hi" ? "गंभीरता" : "Severity"}</h3>
+        <h3 className="mb-1 px-2 text-xs font-semibold text-muted-foreground">{lang === "hi" ? "गंभीरता" : "Severity"}</h3>
         {([3, 2, 1] as Severity[]).map((s) => (
           <FacetButton key={s} active={sevs.includes(s)} onClick={() => toggle(sevs, setSevs, s)} count={sCount(s)}>
             <span className={cn("size-2.5 rounded-full", s === 3 ? "bg-risk-high" : s === 2 ? "bg-risk-med" : "bg-risk-low")} />
@@ -136,7 +136,7 @@ export function KnowledgeView() {
         ))}
       </section>
       <section className="px-2">
-        <h3 className="mb-2 text-xs font-semibold text-muted-foreground uppercase">
+        <h3 className="mb-2 text-xs font-semibold text-muted-foreground">
           {lang === "hi" ? "गहराई" : "Depth"}: <span className="font-mono text-foreground">{depth[0]}–{depth[1]} m</span>
         </h3>
         <Slider min={0} max={4200} step={50} value={depth} onValueChange={(v) => setDepth(v as [number, number])} aria-label="Depth range" />
@@ -163,7 +163,7 @@ export function KnowledgeView() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder={lang === "hi" ? "जैसे: stuck pipe coal, LCM, Kopili kick…" : "Try: stuck pipe coal · LCM pill · Kopili kick · squeeze"}
-            className="h-12 w-full rounded-lg border bg-card pr-10 pl-11 text-base shadow-xs outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
+            className="h-12 w-full rounded-lg border bg-card pr-10 pl-11 text-base outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
             aria-label="Search knowledge base"
           />
           {q && (

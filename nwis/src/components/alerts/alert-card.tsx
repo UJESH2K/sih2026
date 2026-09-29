@@ -35,7 +35,7 @@ export function AlertCard({ alert, compact = false, className }: { alert: NwisAl
   return (
     <article
       className={cn(
-        "rounded-lg border bg-card p-3 text-card-foreground shadow-xs",
+        "rounded-lg border bg-card p-3 text-card-foreground",
         high && alert.status === "new" && "border-risk-high/50 ring-1 ring-risk-high/20",
         alert.status === "applied" && "opacity-80",
         className,
@@ -67,7 +67,7 @@ export function AlertCard({ alert, compact = false, className }: { alert: NwisAl
       {!compact && (
         <>
           <div className="mt-2 rounded-md bg-muted/70 p-2.5">
-            <p className="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">{t("recommendation")}</p>
+            <p className="text-[11px] font-semibold tracking-wide text-muted-foreground">{t("recommendation")}</p>
             <p className="mt-0.5 text-sm leading-snug">{alert.recommendation}</p>
             {alert.provenFix && (
               <p className="mt-1.5 text-xs text-muted-foreground">

@@ -131,7 +131,7 @@ function BotAnswer({ a, animate, onFollow }: { a: Answer; animate: boolean; onFo
       )}
       {done && a.sources.length > 0 && (
         <div>
-          <p className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-muted-foreground uppercase">
+          <p className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-muted-foreground">
             <ShieldCheck className="size-3.5" /> {lang === "hi" ? "स्रोत" : "Sources"} ({a.sources.length})
           </p>
           <div className="flex flex-wrap gap-1.5">
@@ -213,7 +213,7 @@ export function AssistantView() {
               </p>
               <div className="mx-auto mt-6 grid max-w-2xl gap-2 sm:grid-cols-2">
                 {SUGGESTED.map((s) => (
-                  <button key={s} onClick={() => ask(s)} className="rounded-lg border bg-card p-3 text-left text-sm shadow-xs transition hover:border-primary/50 hover:bg-accent/40">
+                  <button key={s} onClick={() => ask(s)} className="rounded-lg border bg-card p-3 text-left text-sm transition hover:border-primary/50 hover:bg-accent/40">
                     {s}
                   </button>
                 ))}

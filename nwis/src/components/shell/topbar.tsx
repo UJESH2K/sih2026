@@ -28,7 +28,7 @@ function ActiveWellChip() {
     <Link
       href="/live"
       data-tour="active-chip"
-      className="flex items-center gap-2.5 rounded-md border bg-card px-2.5 py-1 text-sm whitespace-nowrap shadow-xs hover:bg-muted"
+      className="flex items-center gap-2.5 rounded-md border bg-card px-2.5 py-1 text-sm whitespace-nowrap hover:bg-muted"
     >
       <span className="relative flex size-2.5">
         {running && <span className="absolute inline-flex size-full rounded-full bg-live animate-pulse-ring" />}
@@ -101,7 +101,7 @@ function ModeToggle() {
                   onClick={() => setMode(m)}
                   className={cn(
                     "flex items-center gap-1.5 rounded px-2 py-1 text-xs font-medium transition-colors",
-                    mode === m ? "bg-card text-foreground shadow-xs" : "text-muted-foreground hover:text-foreground",
+                    mode === m ? "bg-card text-foreground" : "text-muted-foreground hover:text-foreground",
                   )}
                 >
                   <Icon className="size-3.5" />
@@ -125,7 +125,7 @@ export function Topbar() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 flex h-14 shrink-0 items-center gap-2 border-b bg-background/95 px-3 backdrop-blur sm:px-4">
+    <header className="sticky top-0 z-40 flex h-14 shrink-0 items-center gap-2 border-b bg-background px-3 sm:px-5">
       <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMenuOpen(true)} aria-label="Open menu">
         <Menu className="size-5" />
       </Button>
@@ -135,8 +135,7 @@ export function Topbar() {
       </Link>
 
       <div className="hidden items-center gap-1.5 text-sm whitespace-nowrap xl:flex">
-        <span className="text-muted-foreground">{t("field")}:</span>
-        <span className="font-medium">{tx(FIELD.name, FIELD.nameHi)}</span>
+        <span className="text-muted-foreground">{tx(FIELD.name, FIELD.nameHi)}</span>
       </div>
       <div className="mx-1 hidden h-6 w-px bg-border xl:block" />
       <ActiveWellChip />
@@ -146,7 +145,7 @@ export function Topbar() {
       <button
         onClick={() => setSearchOpen(true)}
         data-tour="search"
-        className="hidden h-9 w-56 items-center gap-2 rounded-md border bg-card px-3 text-sm text-muted-foreground shadow-xs hover:bg-muted xl:flex"
+        className="hidden h-9 w-56 items-center gap-2 rounded-md border bg-card px-3 text-sm text-muted-foreground hover:bg-muted xl:flex"
       >
         <Search className="size-4" />
         <span className="flex-1 truncate text-left">{t("search")}</span>

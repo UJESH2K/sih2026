@@ -121,7 +121,10 @@ function NearestList() {
                     {types.length === 0 ? (
                       <span className="text-xs text-muted-foreground">{w.status === "planned" ? STATUS_META.planned.label : lang === "hi" ? "कोई घटना नहीं" : "No events"}</span>
                     ) : (
-                      types.slice(0, 3).map((ty) => <EventChip key={ty} type={ty} className="text-[11px]" />)
+                      <>
+                        {types.slice(0, 2).map((ty) => <EventChip key={ty} type={ty} className="text-[11px]" />)}
+                        {types.length > 2 && <span className="self-center text-[11px] text-muted-foreground">+{types.length - 2}</span>}
+                      </>
                     )}
                   </div>
                 </div>
@@ -189,7 +192,7 @@ function LiveMini() {
   return (
     <div className="w-[300px] rounded-lg border bg-card/95 p-3 shadow-md backdrop-blur">
       <div className="flex items-center justify-between">
-        <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground uppercase">
+        <p className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
           <Activity className="size-3.5" /> {ACTIVE_WELL.id} · {t("bitDepth")}
         </p>
         {!running && (

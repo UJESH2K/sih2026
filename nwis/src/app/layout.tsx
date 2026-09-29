@@ -1,20 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono, Noto_Sans_Devanagari } from "next/font/google";
+import { Public_Sans, Noto_Sans_Devanagari } from "next/font/google";
 import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { AppShell } from "@/components/shell/app-shell";
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
 });
 
 const devanagari = Noto_Sans_Devanagari({
@@ -44,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${plexSans.variable} ${plexMono.variable} ${devanagari.variable} h-full antialiased`}
+      className={`${publicSans.variable} ${devanagari.variable} h-full antialiased`}
     >
       <body className="h-full">
         <Providers>

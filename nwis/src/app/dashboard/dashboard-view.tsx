@@ -99,7 +99,7 @@ export function DashboardView() {
         </div>
         <div className="flex rounded-md border bg-muted p-0.5 text-sm" role="radiogroup" aria-label="Scope">
           {(["field", "radius"] as const).map((s) => (
-            <button key={s} role="radio" aria-checked={scope === s} onClick={() => setScope(s)} className={cn("rounded px-3 py-1 font-medium", scope === s ? "bg-card shadow-xs" : "text-muted-foreground")}>
+            <button key={s} role="radio" aria-checked={scope === s} onClick={() => setScope(s)} className={cn("rounded px-3 py-1 font-medium", scope === s ? "bg-card" : "text-muted-foreground")}>
               {s === "field" ? (lang === "hi" ? "पूरा क्षेत्र" : "Whole field") : lang === "hi" ? `${radiusKm} किमी के भीतर` : `Within ${radiusKm} km of ${ACTIVE_WELL.id}`}
             </button>
           ))}
