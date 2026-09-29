@@ -12,3 +12,6 @@
 # OS
 .DS_Store
 Thumbs.db
+
+# Next.js build output (anywhere in the tree)
+.next/
